@@ -39,3 +39,14 @@ CRA adds for you:
 `WEBPACK`
 
 -alts: GULP, BROWSFY
+
+> `webpack` - This is the main engine of webpack, it understands everything related about how the code and files relate to one another, and how to bundle them into a single package.
+
+> `webpack-cli` - This is the actual program we are going to run to trigger/interact with the core engine. It allows us to run webpack on our command line and generate a bundle. (think Docker engine and Docker-CLI ;) )
+
+## MODULES 101: in JS & Webpack
+
+> Modules in the webpack ecosystem act as a means for your code to communicate to webpack a list of exactly which pieces are needed.
+> With this information, webpack can build a dependency graph of all the relationships in your project.
+
+
