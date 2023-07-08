@@ -29,20 +29,13 @@ module.exports = {
     },
 
     //module (loaders)
-    // module: {
+    module: {
 
-    //     rules: [{
-    //         test: /\.css$/, // <<-- test for fiiles matchcig this REGEX
-    //         use: "css-loader" //<-- using loaders usig short-hand syntax for single loader
-    //     }, {
-    //         test: /\.ts$/,
-    //         use: "ts-loader" //<-- using loaders usig short-hand syntax for single loader
-    //     },
-    //     {
-    //         test: /\.sass$/,
-    //         use: ["style-loader", "css-loader"] //<-- using loaders usig array syntax (eeded for multipler loaders)
-    //     }]
-    //}
+        rules: [{
+            test: /\.css$/, // <<-- test for fiiles matchcig this REGEX
+            use: ["style-loader", "css-loader"] //<-- using loaders 
+        }]
+    },
 
     //plugins
     plugins: [

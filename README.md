@@ -50,3 +50,10 @@ CRA adds for you:
 > With this information, webpack can build a dependency graph of all the relationships in your project.
 
 
+### Webpack loaders:
+
+> we __do not__ need loaders for Javascipt as webpack knows JS out of the box. But for otherr reosurces such as Stylesheets(CSS, SASS) or Typescript, we _need_ loaders for them in order for webpack to underrstand these files and transpile + bundle them correctly.
+
+Here, we will demonstrate using CSS/stylesheet loader for webpack.
+
+`css-loader` - this loader transforms css into a __strring__, + loads it into a JS file
