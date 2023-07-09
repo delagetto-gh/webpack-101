@@ -34,6 +34,10 @@ module.exports = {
     rules: [{
       test: /\.css$/, // <<-- test for fiiles matchcig this REGEX
       use: ['style-loader', 'css-loader'] // <-- using loaders
+    },
+    {
+      test: /\.(png|svg|jpg|jpeg|gif)/,
+      type: 'asset/resource'
     }]
   },
 

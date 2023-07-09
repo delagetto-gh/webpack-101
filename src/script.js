@@ -2,7 +2,12 @@ import join from 'lodash/join' // <-- webpack will see this JS module
 //                               and will BUNDLE the js contents into
 //                               the 'bundle.js' output js file
 
-import stylesheet from './style.css'
+import './style.css'
+
+import mushroom from './assets/ck-yeo-ZyEnQoFp8RQ-unsplash.jpg'
+// ^^ When you use the asset loader in webpack, you will import ^^
+// a string value into your JS variable. That string holds the src value
+// that you can use to refer to the paths to those images.
 
 const createComponent = () => {
   const element = document.createElement('div')
@@ -17,5 +22,15 @@ const createComponent = () => {
 }
 
 const componentToAdd = createComponent()
-
 document.body.appendChild(componentToAdd)
+
+// NEW BLOCK
+function imageComponent () {
+  const element = document.createElement('img')
+
+  element.src = mushroom
+
+  return element
+}
+
+document.body.appendChild(imageComponent())
