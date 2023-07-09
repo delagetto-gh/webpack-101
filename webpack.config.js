@@ -24,7 +24,7 @@ module.exports = {
   //           all 'bundling' is done. THIS FILE, is what our index.html will reference
   output: {
     path: distDirectory,
-    filename: 'bundle.js',
+    filename: 'bundle.[contenthash].js', // < <-- the [contenthash] is an example of webpacks 'substituioos',  ainly used for CACHE BUSTING
     clean: true // <-- instructs webpack to clear out the path ^^ before re-bundling
   },
 
@@ -49,6 +49,7 @@ module.exports = {
     })
   ],
 
+  // <-- dev server config (need `webpack-dev-server` installed for this to work)
   devServer: {
     static: './dist', // <-- web-serve the files located here
     port: 14409, // <-- run the server on this port, (loccalhost)
