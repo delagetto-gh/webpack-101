@@ -22,18 +22,18 @@ module.exports = {
 
   // entry: <-- starting point/file of our app for webpack to  build dependecy graph
   entry: {
-    appy: './src/script.js', // <-- Key = semantic name given to thhe bundlee / chunk.
+    main: './src/js/script.js', // <-- Key = semantic name given to thhe bundlee / chunk.
     //                             this means we have have MULTIPLE bundle/entry points
     //                          imagine if we have one for our prop code, and anotherr entry point fr VENDOR stuff/3rrd party stuff so
     // vendor: './lib/vendorIndex.js'
-    vendor: './src/vendor.js'
+    vendor: './src/js/vendor.js'
   },
 
   // output <-- name and location of wherre webpack wll generate the fil after
   //           all 'bundling' is done. THIS FILE, is what our index.html will reference
   output: {
     path: distDirectory,
-    filename: '[name].bundle.js', // < <-- the [contenthash] is an example of webpacks 'substituioos',  ainly used for CACHE BUSTING
+    filename: 'js/[name]-bundle.js', // < <-- the [contenthash] is an example of webpacks 'substituioos',  ainly used for CACHE BUSTING
     clean: true // <-- instructs webpack to clear out the path ^^ before re-bundling
   },
 

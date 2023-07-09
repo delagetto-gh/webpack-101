@@ -2,9 +2,12 @@ import join from 'lodash/join' // <-- webpack will see this JS module
 //                               and will BUNDLE the js contents into
 //                               the 'bundle.js' output js file
 
-import './style.css'
+import '../styles/style.css' // <-- willl be picked dup by the
+// MiniCssExtractPlugin.loader, 'css-loader'
+// which will load css into a JS, then wil extract that into a physical
+// .css asset file
 
-import mushroom from './assets/ck-yeo-ZyEnQoFp8RQ-unsplash.jpg'
+import mushroom from '../assets/ck-yeo-ZyEnQoFp8RQ-unsplash.jpg'
 // ^^ When you use the asset loader in webpack, you will import ^^
 // a string value into your JS variable. That string holds the src value
 // that you can use to refer to the paths to those images.
