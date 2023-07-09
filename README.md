@@ -65,3 +65,13 @@ Here, we will demonstrate using CSS/stylesheet loader for webpack.
 1) Install webpack dev seerver as a dev dep:  `webpack-dev-server`
 2) Configue the server in the `webpack.config.js` with field `devServer: { ..cfg ges here }`
 3) 
+
+
+# Extracting CSS into its own file(s), rather than injecing as a lonng string in
+
+> Curently, everything is injected in the DOM via JS (bootstrap css, style.css)  as a long string. Thhis works, BUT we would prefer to a seperate css bundle FILE which can be loaded/downloaded indipendently of JS (i,e, we dont have to wait for JS to finis to add style to our page).
+
+> We want to do this because we want styles applied to our HTML dom dés que possible, so that our site looks peng always. If we wait for JS to innject our style then there could be a significatnt (visible) wait between our naked html, and our styled html. 
+
+### See `https://webpack.js.org/plugins/mini-css-extract-plugin/`
+### See `https://maxrozen.com/difference-between-style-loader-mini-css-extract-plugin`

@@ -5,6 +5,11 @@ const path = require('path')
 // copy and refernc them
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+// extracts your CSS into separate files.
+// It generates a CSS file for each JS file that imports CSS.
+// **Do not use style-loader and mini-css-extract-plugin together.**
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 const currentWorkingDirectory = __dirname
 const distDirectory = path.resolve(currentWorkingDirectory, 'dist')
 
@@ -17,7 +22,7 @@ module.exports = {
 
   // entry: <-- starting point/file of our app for webpack to  build dependecy graph
   entry: {
-    app: './src/script.js', // <-- Key = semantic name given to thhe bundlee / chunk.
+    appy: './src/script.js', // <-- Key = semantic name given to thhe bundlee / chunk.
     //                             this means we have have MULTIPLE bundle/entry points
     //                          imagine if we have one for our prop code, and anotherr entry point fr VENDOR stuff/3rrd party stuff so
     // vendor: './lib/vendorIndex.js'
@@ -37,7 +42,7 @@ module.exports = {
 
     rules: [{
       test: /\.css$/, // <<-- test for fiiles matchcig this REGEX
-      use: ['style-loader', 'css-loader'] // <-- using loaders
+      use: [MiniCssExtractPlugin.loader, 'css-loader'] // <-- using loaders
     },
     {
       test: /\.(png|svg|jpg|jpeg|gif)/,
@@ -57,6 +62,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html', // <-- the output (bundled) file name
       template: './src/index.html' // <-- use our existing spa index.html as a tempate to copy from
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'styles/[name].css' // <-- the output (bundled) file name
     })
   ],
 
