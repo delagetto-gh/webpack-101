@@ -37,7 +37,14 @@ module.exports = {
     },
     {
       test: /\.(png|svg|jpg|jpeg|gif)/,
-      type: 'asset/resource'
+      type: 'asset/resource',
+      generator: {
+        filename: 'assets/baba[name]-[hash][ext]'
+      }
+    },
+    {
+      test: /\.html$/,
+      use: ['html-loader']
     }]
   },
 
