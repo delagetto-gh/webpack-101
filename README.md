@@ -57,3 +57,11 @@ CRA adds for you:
 Here, we will demonstrate using CSS/stylesheet loader for webpack.
 
 `css-loader` - this loader transforms css into a __strring__, + loads it into a JS file
+
+# Webpack dev server
+
+## wee can use webpack's dev server package `webpack-dev-server` as a dev deependency to build/transpile/bundle our app and __serve is in a web serrver__ all thru webpack.
+
+1) Install webpack dev seerver as a dev dep:  `webpack-dev-server`
+2) Configue the server in the `webpack.config.js` with field `devServer: { ..cfg ges here }`
+3) 
