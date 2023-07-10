@@ -12,6 +12,10 @@ import mushroom from '../assets/ck-yeo-ZyEnQoFp8RQ-unsplash.jpg'
 // a string value into your JS variable. That string holds the src value
 // that you can use to refer to the paths to those images.
 
+export const getItemAsync = async () => {
+  return await fetch('http://google.com')
+}
+
 const createComponent = () => {
   const element = document.createElement('div')
 

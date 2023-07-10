@@ -1,5 +1,7 @@
 const path = require('path')
 
+const webpack = require('webpack') // see https://stackoverflow.com/a/64553486
+
 // html webpack plugin takes our htmll pages and bundle them
 // and place them into our 'dist' folder, so we dont manually need to
 // copy and refernc them
@@ -22,11 +24,10 @@ module.exports = {
 
   // entry: <-- starting point/file of our app for webpack to  build dependecy graph
   entry: {
-    main: './src/js/script.js', // <-- Key = semantic name given to thhe bundlee / chunk.
+    main: './src/js/index.js' // <-- Key = semantic name given to thhe bundlee / chunk.
     //                             this means we have have MULTIPLE bundle/entry points
     //                          imagine if we have one for our prop code, and anotherr entry point fr VENDOR stuff/3rrd party stuff so
     // vendor: './lib/vendorIndex.js'
-    vendor: './src/js/vendor.js'
   },
 
   // output <-- name and location of wherre webpack wll generate the fil after
@@ -54,6 +55,26 @@ module.exports = {
     {
       test: /\.html$/,
       use: ['html-loader']
+    },
+    {
+      test: /\.(js|jsx)$/,
+      // Resolving can be configured on module level.
+      // All applied resolve options get deeply merged with higher level resolve.
+      resolve: {
+        // Ask webpack to automatically resolve certain extensions.
+        // which is what enables users to leave off the extension when importing:
+        // ie. import MyComponent from '../path/to/MyComponent' (imagine the file is MyComponent.jsx)
+        extensions: ['.js', '.jsx']
+      },
+      exclude: '/node_modules/',
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: [
+            '@babel/preset-env',
+            '@babel/preset-react']
+        }
+      }
     }]
   },
 
@@ -65,6 +86,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].css' // <-- the output (bundled) file name
+    }),
+    new webpack.ProvidePlugin({ // see https://stackoverflow.com/a/64553486
+      process: 'process/browser'
     })
   ],
 
